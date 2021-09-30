@@ -1,0 +1,35 @@
+{
+  "name": "redbull",
+  "version": "0.0.0",
+  "description": "Light-weight real time dashboard for viewing bull jobs on redis",
+  "license": "MIT",
+  "keywords": [
+    "bull",
+    "redis",
+    "bull-ui",
+    "bull-dashboard",
+    "ioredis",
+    "bull-interface"
+  ],
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "lodash": "^4.17.21",
+    "morgan": "~1.9.1",
+    "redis": "^3.1.2",
+    "socket.io": "^4.2.0",
+    "util-promisifyall": "^1.0.6"
+  },
+  "bin":{
+    "redbull": "./bin/www"
+  }
+}
