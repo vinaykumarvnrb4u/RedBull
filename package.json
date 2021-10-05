@@ -30,7 +30,16 @@
     "util-promisifyall": "^1.0.6"
   },
   "bin": {
-    "redbull": "./bin/www"
+    "@vinay-kumar/red-bull": "./bin/www"
   },
-  "author": "vinay"
+  "author": "vinay",
+  "homepage": "https://github.com/vinaykumarvnrb4u/RedBull",
+  "bugs": {
+    "url": "https://github.com/vinaykumarvnrb4u/RedBull/issues",
+    "email": "vinaykumarvnrb4u@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinaykumarvnrb4u/RedBull"
+  }
 }
