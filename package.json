@@ -1,6 +1,6 @@
 {
   "name": "redbull",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Light-weight real time dashboard for viewing bull jobs on redis",
   "license": "MIT",
   "keywords": [
@@ -29,7 +29,7 @@
     "socket.io": "^4.2.0",
     "util-promisifyall": "^1.0.6"
   },
-  "bin":{
+  "bin": {
     "redbull": "./bin/www"
   },
   "author": "vinay"
