@@ -26,7 +26,7 @@ let debouncer;
 
 io.on('connection', socket => {
     console.log('socket connected');
-    debouncer = _.debounce(() => socket.emit('count'), 1000);
+    debouncer = _.debounce(() => socket.emit('count'), 400);
 });
 client.on('pmessage',(channel, key) => {
     console.log(`pchannel : ${channel}`);

@@ -31,5 +31,6 @@
   },
   "bin":{
     "redbull": "./bin/www"
-  }
+  },
+  "author": "vinay"
 }

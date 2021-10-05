@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const redis = require('../config/redisClient');
 const { ReS, ReE } = require('../utils/responses');
-const formatOutput = require('../utils/formatOutput');
+const { formatOutput } = require('../utils/formatOutput');
 const { getCounts } = require('./count');
 
 const getQueues = async (req, res) => {

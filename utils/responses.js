@@ -9,7 +9,7 @@ const ReS = (res, data, code) => {
 const ReE = (res, err, code) => {
     if (typeof code !== 'undefined') res.status(code);
     else res.status(400);
-    return res.json(err);
+    return res.json({ error: err.message });
 }
 
 module.exports = { ReS, ReE }

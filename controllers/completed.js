@@ -1,13 +1,9 @@
 const { ReS, ReE } = require('../utils/responses');
-const jobsInfoByStatus = require('../utils/getJobsInfoByStatus');
-const formatOutput = require('../utils/formatOutput');
-const { getCounts } = require('./count');
+const { getJobsInfoByStatus } = require('../utils/getJobsInfoByStatus');
 
-const completed = async (req, res, next) => {
+const completed = async (req, res) => {
     try {
-        const status = 'completed';
-        let result = await Promise.all([jobsInfoByStatus(status), getCounts(status)]);
-        result = formatOutput(result, status);
+        const result = await getJobsInfoByStatus({ status: 'completed', query: req.query });
         return ReS(res, result);
     } catch (err) {
         return ReE(res, err);
