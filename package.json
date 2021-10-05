@@ -1,6 +1,5 @@
 {
   "name": "red-bull",
-  "version": "0.0.1",
   "description": "Light-weight real time dashboard for viewing bull jobs on redis",
   "license": "MIT",
   "keywords": [
