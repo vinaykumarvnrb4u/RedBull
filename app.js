@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 
 const buildFolder = './build';
 
@@ -11,19 +11,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.set('views', path.join(__dirname, buildFolder));
-app.engine('html', require('ejs').renderFile);
-
-app.use(
-  '/static',
-  express.static(path.join(__dirname, `${buildFolder}/static`)),
-);
-
-app.get('/', function(req, res) {
-  res.render('index.html');
-});
+app.use(express.static(path.join(__dirname, `${buildFolder}`)));
 
 app.use('/api', indexRouter);
+
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, buildFolder, 'index.html'));
+});
 
 // error handler
 app.use(function(err, req, res, next) {
