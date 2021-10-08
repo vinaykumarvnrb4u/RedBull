@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require('../utils/lodash-helpers');
 const formatOutput = (result, status) => {
     let output = {
         jobs: []

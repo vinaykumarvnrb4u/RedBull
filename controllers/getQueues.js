@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require('../utils/lodash-helpers');
 const redis = require('../config/redisClient');
 const { ReS, ReE } = require('../utils/responses');
 const { formatOutput } = require('../utils/formatOutput');
