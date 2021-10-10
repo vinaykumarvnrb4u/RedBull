@@ -1,6 +1,6 @@
 const server = require('../bin/www');
 const redisConnector = require('../config/redisConnector');
-const _ = require('lodash');
+const _ = require('../utils/lodash-helpers');
 
 const options = {
     cors: {

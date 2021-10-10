@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require('../utils/lodash-helpers');
 const redis = require('../config/redisClient');
 const jobsByStatus = require('./jobsByStatus');
 const buildJobNames = require('./jobNamesFromIds');
