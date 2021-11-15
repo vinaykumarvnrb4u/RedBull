@@ -6,7 +6,7 @@ const formatOutput = (result, status) => {
     if(_.isEmpty(result)) return output;
     const jobs = _.isEmpty(result[0]) ? 0 : result[0].jobs;
     let count = {...result[1], [status]: result[0].count}
-    output = { jobs, count };
+    output = { jobs, count, sizeByCategory: result[0].sizeByCategory };
     return output;
 }
 
