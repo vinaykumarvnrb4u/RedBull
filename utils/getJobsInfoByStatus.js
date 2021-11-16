@@ -42,7 +42,7 @@ const jobsInfoByStatus = async (status) => {
         });
         const megaBytes = sum / 1024;
         allJobs.sort(function(a, b){
-            return a.size - b.size;
+            return b.size - a.size;
         });
         const sizeByCategory = [];
         _.forEach(sizeData, (v, k) => sizeByCategory.push({ name: k, size: `${v} Kb` }));

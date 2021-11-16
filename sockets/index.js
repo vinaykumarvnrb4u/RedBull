@@ -31,5 +31,5 @@ io.on('connection', socket => {
 client.on('pmessage',(channel, key) => {
     console.log(`pchannel : ${channel}`);
     console.log(`pkey : ${key}`);
-    if(debouncer) debouncer();
+    // if(debouncer) debouncer();
 });
