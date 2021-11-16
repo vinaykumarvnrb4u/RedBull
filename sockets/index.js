@@ -19,8 +19,8 @@ const settings = {
 
 const client = redisConnector(settings);
 
-client.config('set', 'notify-keyspace-events', 'KEA');
-client.psubscribe('__keyspace*__:bull:*:[0-9]*');
+// client.config('set', 'notify-keyspace-events', 'KEA');
+// client.psubscribe('__keyspace*__:bull:*:[0-9]*');
 console.log('socket waiting');
 let debouncer;
 
@@ -28,8 +28,8 @@ io.on('connection', socket => {
     console.log('socket connected');
     debouncer = _.debounce(() => socket.emit('count'), 1000);
 });
-client.on('pmessage',(channel, key) => {
-    console.log(`pchannel : ${channel}`);
-    console.log(`pkey : ${key}`);
-    // if(debouncer) debouncer();
-});
+// client.on('pmessage',(channel, key) => {
+//     console.log(`pchannel : ${channel}`);
+//     console.log(`pkey : ${key}`);
+//     // if(debouncer) debouncer();
+// });
