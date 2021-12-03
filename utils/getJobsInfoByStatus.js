@@ -21,13 +21,18 @@ const jobsInfoByStatus = async (status) => {
         const jobsData = await Promise.all(promises);
         let sum = 0;
         const sizeData = {};
+        const countData = {};
         jobsData.map((jobs, i) => {
             const queueName = queueNames[i];
             jobs.map((data, j) => {
                 const size = Buffer.byteLength(JSON.stringify(data));
                 const kiloBytes = size / 1024;
-                if (sizeData[data.name] === undefined) sizeData[data.name] = 0;
+                if (sizeData[data.name] === undefined) {
+                    sizeData[data.name] = 0;
+                    countData[data.name] = 0;
+                }
                 sizeData[data.name] += kiloBytes;
+                countData[data.name] += 1;
                 sum += kiloBytes;
                 allJobs.push({
                     id: keys[queueName][j],
@@ -45,7 +50,7 @@ const jobsInfoByStatus = async (status) => {
             return b.size - a.size;
         });
         const sizeByCategory = [];
-        _.forEach(sizeData, (v, k) => sizeByCategory.push({ name: k, size: `${v} Kb` }));
+        _.forEach(sizeData, (v, k) => sizeByCategory.push({ name: k, size: `${v} Kb`, count: countData[k] }));
         sizeByCategory.push({ name: 'Total size', size: `${megaBytes} Mb` });
         return { count, jobs: allJobs, sizeByCategory };
     } catch (err) {
