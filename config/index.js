@@ -10,9 +10,11 @@ const { parsed: envs } = result;
 const cmdArgs = process.argv.slice(2);
 if (cmdArgs && Array.isArray(cmdArgs) && cmdArgs.length) {
   cmdArgs.forEach((arg) => {
+    if (typeof arg !== 'string') return;
+    arg = arg.toUpperCase();
     // Set app port
-    if (arg.startsWith('port:')) {
-      const port = arg.substring('port:'.length);
+    if (arg.startsWith('PORT:')) {
+      const port = arg.substring('PORT:'.length);
       if (Number(port) && port.length === 4) {
         if (typeof port === 'string') {
           process.env['PORT'] = port;

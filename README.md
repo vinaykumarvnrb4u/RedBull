@@ -41,7 +41,6 @@ red-bull REDIS_HOST:<redis-host-ip> REDIS_PORT:<redis-port-number>
 ex: red-bull REDIS_HOST:127.0.0.1 REDIS_PORT:6379
  ```
 
-
 ### From github:
 ---
  - First of all, clone the **red-bull** repository using the command ```git clone https://github.com/vinaykumarvnrb4u/RedBull``` or download the zip file from [here](https://github.com/vinaykumarvnrb4u/RedBull/archive/refs/heads/master.zip).
@@ -58,9 +57,12 @@ ex: npm start port:5050
 npm start REDIS_HOST:<redis-host-ip> REDIS_PORT:<redis-port>
 ex: npm start REDIS_HOST:127.0.0.1 REDIS_PORT:6379
  ```
+
+> Notes : Command line arguments are case insensitive
+
 <br>
 
-### Working preview
+### Working application preview
 ---
 <br>
 
