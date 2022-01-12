@@ -28,12 +28,18 @@ The following are the different ways to install **red-bull**.
  ```
 
  - By default application listens on port 5000
- - To start application with custom port try the following command
+ - To start application with custom port try the following command by passing specified command line arguments
  ```
 red-bull port:<valid-port-number>
 ex: red-bull port:5050
  ```
 
+ - By default application will try to connect to redis with localhost and default port 6379.
+ - To connect application with custom redis host & redis port try the following command by passing specified command line arguments
+ ```
+red-bull REDIS_HOST:<redis-host-ip> REDIS_PORT:<redis-port-number>
+ex: red-bull REDIS_HOST:127.0.0.1 REDIS_PORT:6379
+ ```
 
 ### From github:
 ---
@@ -41,14 +47,22 @@ ex: red-bull port:5050
  - Change the directory to red-bull ```cd RedBull```
  - Install all the dependencies ```npm install```
  - Start the application using ```npm start``` command
- - To start application with custom port try the following command
+ - To start application with custom port try the following command by passing specified command line arguments
  ```
 npm start port:<valid-port-number>
 ex: npm start port:5050
  ```
+ - To start application with custom redis host & redis port try the following command by passing specified command line arguments
+ ```
+npm start REDIS_HOST:<redis-host-ip> REDIS_PORT:<redis-port>
+ex: npm start REDIS_HOST:127.0.0.1 REDIS_PORT:6379
+ ```
+
+> Notes : Command line arguments are case insensitive
+
 <br>
 
-### Working preview
+### Working application preview
 ---
 <br>
 

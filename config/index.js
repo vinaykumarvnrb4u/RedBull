@@ -10,9 +10,11 @@ const { parsed: envs } = result;
 const cmdArgs = process.argv.slice(2);
 if (cmdArgs && Array.isArray(cmdArgs) && cmdArgs.length) {
   cmdArgs.forEach((arg) => {
-    // set port
-    if (arg.startsWith('port:')) {
-      const port = arg.substring('port:'.length);
+    if (typeof arg !== 'string') return;
+    arg = arg.toUpperCase();
+    // Set app port
+    if (arg.startsWith('PORT:')) {
+      const port = arg.substring('PORT:'.length);
       if (Number(port) && port.length === 4) {
         if (typeof port === 'string') {
           process.env['PORT'] = port;
@@ -21,6 +23,27 @@ if (cmdArgs && Array.isArray(cmdArgs) && cmdArgs.length) {
         }
       }
     }
+
+    // Set REDIS host
+    if (arg.startsWith('REDIS_HOST:')) {
+      const REDIS_HOST = arg.substring('REDIS_HOST:'.length);
+      if (typeof REDIS_HOST === 'string') {
+        process.env['REDIS_HOST'] = REDIS_HOST;
+      } else {
+        process.env['REDIS_HOST'] = JSON.stringify(REDIS_HOST);
+      }
+    }
+
+    // Set REDIS port
+    if (arg.startsWith('REDIS_PORT:')) {
+      const REDIS_PORT = arg.substring('REDIS_PORT:'.length);
+      if (typeof REDIS_PORT === 'string') {
+        process.env['REDIS_PORT'] = REDIS_PORT;
+      } else {
+        process.env['REDIS_PORT'] = JSON.stringify(REDIS_PORT);
+      }
+    }
+
   });
 }
 
