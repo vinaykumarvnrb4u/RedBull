@@ -1,6 +1,6 @@
 {
   "name": "@vinay-kumar/red-bull",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Light-weight real time dashboard for viewing bull jobs on redis",
   "license": "MIT",
   "keywords": [
@@ -24,7 +24,6 @@
     "lodash.get": "^4.4.2",
     "lodash.isempty": "^4.4.0",
     "lodash.set": "^4.3.2",
-    "morgan": "~1.9.1",
     "redis": "^3.1.2",
     "socket.io": "^4.2.0",
     "util-promisifyall": "^1.0.6"
