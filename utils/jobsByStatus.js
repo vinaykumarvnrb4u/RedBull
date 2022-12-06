@@ -11,10 +11,10 @@ const jobsByStatus = ({ keys, limit, offset }) => new Promise((resolve, reject) 
     } else if (Number.isInteger(Number(limit)) && limit > 0) endRange = limit - 1;
     keys.map((key) => {
         const arr = key.split(':');
-        const status = arr[arr.length - 1];
-        const queue = arr.slice(1, arr.length - 1).join(':');
+        const status = arr[arr.length - 2] === 'groups' ? 'groups' : arr[arr.length - 1];
+        const queue = arr[arr.length - 2] === 'groups' ? arr.slice(1).join(':') : arr.slice(1, arr.length - 1).join(':');
         qstatusKeys[queue] = [];
-        if (status === 'active' || status === 'wait') {
+        if (status === 'active' || status === 'wait' || status === 'groups') {
             multi.push(['lrange', key, startRange, endRange]);
         } else if (status === 'delayed' || status === 'completed' || status === 'failed') {
             multi.push(['zrange', key, startRange, endRange]);

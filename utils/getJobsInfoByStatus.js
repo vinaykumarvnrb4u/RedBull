@@ -48,7 +48,10 @@ const basicJobsInfoByStatus = async ({ status, query }) => {
     const { limit, offset } = query;
     try {
         const statusKeys = await redis.keysAsync(`bull:*:${status}`);
-        const jobs = await jobsByStatus({ keys: statusKeys, limit, offset });
+        const groupKeys = await redis.keysAsync('bull:*:groups:*');
+        let Jkeys = [...statusKeys];
+        if (status === 'wait') Jkeys = [...Jkeys, ...groupKeys];
+        const jobs = await jobsByStatus({ keys: Jkeys, limit, offset });
         if (_.isEmpty(jobs) || !jobs.count) return [];
         const { keys } = jobs;
         const data = formatJobs(keys, status, limit, offset);

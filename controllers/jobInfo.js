@@ -4,7 +4,8 @@ const getJobsInfo = require('../utils/getJobsInfo');
 const getJobInfo = async (req, res) => {
     try {
         const { queue, jobId } = req.params;
-        const jobName = `bull:${queue}:${jobId}`;
+        const name = queue.split(':')[0];
+        const jobName = `bull:${name}:${jobId}`;
         let result = await getJobsInfo([jobName]);
         if (!result || !result.length) return ReS(res, {});
         if (result[0].opts) result[0].opts = JSON.parse(result[0].opts);
